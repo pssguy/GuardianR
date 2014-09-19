@@ -17,7 +17,7 @@ get_json <- function(keywords, format="json", from.date, to.date, api.key)
   # call guardian API
   while (this.page <= pages)
   {
-    request <- paste("http://beta.content.guardianapis.com/search?q=", keywords, "&from-date=", from.date, "&to-date=", to.date, "&format=", format, "&show-fields=all&page=", this.page, "&pageSize=", page.size, "&api-key=", api.key, sep="")
+    request <- paste("http://beta.content.guardianapis.com/search?q=", keywords, "&from-date=", from.date, "&to-date=", to.date, "&format=", format, "&show-fields=headline,byline&page=", this.page, "&pageSize=", page.size, "&api-key=", api.key, sep="")
     if(.Platform$OS.type == "windows") { if(!file.exists("cacert.perm")) download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.perm") }
     if(.Platform$OS.type == "windows") { json <- getURL(request, cainfo = "cacert.perm", timeout = 240, ssl.verifypeer = FALSE) }
     else { json <- getURL(request, timeout = 240) }
