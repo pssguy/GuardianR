@@ -177,9 +177,9 @@ parse_json_to_df <- function(api.responses)
   return(unique(api.df))
 }
 
-get_guardian <- function(keywords, format="json", from.date, to.date, api.key)
+get_guardian <- function(keywords, format="json", from.date, to.date,fields=c("headline","byline"), api.key)
 {
-  guardian.api.responses <- get_json(keywords, format="json", from.date, to.date, api.key)
+  guardian.api.responses <- get_json(keywords, format="json", from.date, to.date,fields=c("headline","byline"), api.key)
   guardian.api.df <- parse_json_to_df(guardian.api.responses)
   return (guardian.api.df)
 }
